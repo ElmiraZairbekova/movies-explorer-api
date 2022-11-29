@@ -1,0 +1,24 @@
+{
+  "name": "movies-explorer-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "lint": "npx eslint ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElmiraZairbekova/movies-explorer-api.git"
+  },
+  "author": "Zairbekova Elmira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ElmiraZairbekova/movies-explorer-api/issues"
+  },
+  "homepage": "https://github.com/ElmiraZairbekova/movies-explorer-api#readme",
+  "dependencies": {
+    "scripts-dev": "^1.1.0"
+  }
+}
