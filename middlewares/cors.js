@@ -1,7 +1,7 @@
 const allowedCors = [
   'http://localhost:3000',
-  'http://mesto.education.nomoredomains.icu',
-  'https://mesto.education.nomoredomains.icu',
+  'http://movies-diplom.nomoredomains.club',
+  'https://movies-diplom.nomoredomains.club',
 ];
 
 const cors = (req, res, next) => {

@@ -2,9 +2,9 @@ const { JWT_SECRET, NODE_ENV } = process.env;
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const User = require('../models/user');
-const BadRequestError = require('..utils/errors/BadRequestError');
-const NotFoundError = require('..utils/errors/NotFoundError');
-const ConflictError = require('..utils/errors/ConflictError');
+const BadRequestError = require('../utils/errors/BadRequestError');
+const NotFoundError = require('../utils/errors/NotFoundError');
+const ConflictError = require('../utils/errors/ConflictError');
 
 const getUserInfo = (req, res, next) => {
   const userId = req.user._id;
