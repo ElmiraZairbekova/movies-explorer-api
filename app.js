@@ -18,7 +18,6 @@ mongoose.connect(DB_ADDRESS, () => {
 
 const app = express();
 
-app.use(limiter);
 app.use(helmet());
 
 app.use(bodyParser.json());
@@ -38,6 +37,7 @@ app.use(errorLogger);
 app.use(errors());
 app.use(handleError);
 app.use(cors);
+app.use(limiter);
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
 });
