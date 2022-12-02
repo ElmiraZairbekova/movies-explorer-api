@@ -6,9 +6,6 @@ const ForbiddenError = require('../utils/errors/ForbiddenError');
 const getMovies = (req, res, next) => {
   Movie.find({ owner: req.user._id })
     .then((movies) => {
-      if (!movies) {
-        throw new NotFoundError('Нет данных');
-      }
       res.send(movies);
     })
     .catch(next);
@@ -23,9 +20,8 @@ const createMovie = (req, res, next) => {
       if (err.name === 'ValidationError') {
         throw new BadRequestError('Переданы некорректные данные');
       }
-      next(err);
+      return next(err);
     })
-    .catch(next);
 };
 
 const deleteMovie = (req, res, next) => {
