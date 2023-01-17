@@ -10,7 +10,7 @@ const routes = require('./routes');
 const limiter = require('./utils/limiter');
 const helmet = require('helmet');
 
-const { PORT = 3000, DB_ADDRESS = 'mongodb://localhost:27017/bitfilmsdb' } = process.env;
+const { PORT = 3000, DB_ADDRESS = 'mongodb://localhost:127.0.0.1:27017/bitfilmsdb' } = process.env;
 
 mongoose.connect(DB_ADDRESS, () => {
   console.log('Connection successful');
