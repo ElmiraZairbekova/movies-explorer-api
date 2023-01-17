@@ -2,6 +2,8 @@ const allowedCors = [
   'http://localhost:3000',
   'http://movies-diplom.nomoredomains.club',
   'https://movies-diplom.nomoredomains.club',
+  'http://api.movies-diplom.nomoredomains.club',
+  'https://apimovies-diplom.nomoredomains.club',
 ];
 
 const cors = (req, res, next) => {

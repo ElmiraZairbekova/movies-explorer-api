@@ -23,6 +23,8 @@ app.use(helmet());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use(cors);
+
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
@@ -36,7 +38,6 @@ app.use('/', routes);
 app.use(errorLogger);
 app.use(errors());
 app.use(handleError);
-app.use(cors);
 app.use(limiter);
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
