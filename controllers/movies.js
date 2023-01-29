@@ -13,10 +13,29 @@ const getMovies = (req, res, next) => {
 
 const createMovie = (req, res, next) => {
   const owner = req.user._id;
+  const {
+    country, director, duration, year, description, image,
+    trailerLink, thumbnail, movieId, nameRU, nameEN,
+  } = req.body;
 
-  Movie.create({ owner, ...req.body })
+  Movie.create(
+    {
+      country,
+      director,
+      duration,
+      year,
+      description,
+      image,
+      trailerLink,
+      thumbnail,
+      owner,
+      movieId,
+      nameRU,
+      nameEN,
+    },
+  )
     .then((movie) => res.send(movie))
-    .catch((err) => {
+       .catch((err) => {
       if (err.name === 'ValidationError') {
         throw new BadRequestError('Переданы некорректные данные');
       }
