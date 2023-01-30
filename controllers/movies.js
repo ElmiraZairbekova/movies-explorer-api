@@ -11,18 +11,56 @@ const getMovies = (req, res, next) => {
     .catch(next);
 };
 
-const createMovie = (req, res, next) => {
-  const owner = req.user._id;
+// const createMovie = (req, res, next) => {
+//   const owner = req.user._id;
 
-  Movie.create({ owner, ...req.body })
+//   Movie.create({ owner, ...req.body })
+//     .then((movie) => res.send(movie))
+//     .catch((err) => {
+//       if (err.name === 'ValidationError') {
+//         throw new BadRequest('Переданы некорректные данные');
+//       }
+//       next(err);
+//     })
+//     .catch(next);
+// };
+
+const createMovie = (req, res, next) => {
+  const {
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailerLink,
+    thumbnail,
+    movieId,
+    nameRU,
+    nameEN,
+  } = req.body;
+  Movie.create({
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailerLink,
+    thumbnail,
+    movieId,
+    nameRU,
+    nameEN,
+    owner: req.user._id,
+  })
     .then((movie) => res.send(movie))
     .catch((err) => {
       if (err.name === 'ValidationError') {
-        throw new BadRequest('Переданы некорректные данные');
+        next(new BadRequest('Переданы некорректные данные'));
+      } else {
+        next(err);
       }
-      next(err);
-    })
-    .catch(next);
+    });
 };
 
 const deleteMovie = (req, res, next) => {
